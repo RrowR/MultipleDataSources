@@ -100,6 +100,8 @@ public class MultipleDataSourceTransactionAspect {
             // 回滚事务
             pair.getKey().rollback(pair.getValue());
         }
+        // 移除数组里的栈
+        THREAD_LOCAL.remove();
     }
 
 }
